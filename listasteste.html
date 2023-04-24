@@ -7,6 +7,44 @@
     <title>Listas</title>
   </head>
   <body>
-    <p></p>
+    <p id="cabecalho">Meu programa em JavaScript - LISTAS</p>
+
+    <p id="lista" style="background-color: #f7f2f2">lista</p>
+
+    <p id="acoes">
+      <input
+        type="button"
+        value="Adicionar Item"
+        onclick="inseriritem(minhalista);"
+      />
+      <input type="button" value="Remover Item" />
+    </p>
   </body>
+
+  <script>
+    var minhalista = ["abacaxi", "banana", "limão"];
+
+    function exibirlista(arr) {
+      var textoretorno = "";
+      for (i = 0; i <= arr.length - 1; i++) {
+        textoretorno += i + " - " + arr[i] + "<br>";
+      }
+
+      document.getElementById("lista").innerHTML = textoretorno;
+    }
+
+    function inseriritem(arr) {
+      var novoitem = prompt("Digite um novo item:");
+
+      if (novoitem != null && novoitem != "") {
+        arr.push(novoitem);
+      } else {
+        alert("Nenhum item foi digitado!");
+      }
+
+      exibirlista(minhalista);
+    }
+
+    exibirlista(minhalista);
+  </script>
 </html>
